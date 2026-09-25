@@ -1,0 +1,190 @@
+{
+  "aggregate": {
+    "faithfulness": 0.748,
+    "answer_relevancy": 0.394,
+    "context_precision": 0.336,
+    "context_recall": 0.18
+  },
+  "per_question": [
+    {
+      "id": "Q01",
+      "faithfulness": 0.7,
+      "answer_relevancy": 0.9,
+      "context_precision": 0.2,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q02",
+      "faithfulness": 0.9,
+      "answer_relevancy": 0.5,
+      "context_precision": 0.9,
+      "context_recall": 0.2
+    },
+    {
+      "id": "Q03",
+      "faithfulness": 0.2,
+      "answer_relevancy": 0.95,
+      "context_precision": 0.9,
+      "context_recall": 0.3
+    },
+    {
+      "id": "Q04",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.1,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q05",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q06",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q07",
+      "faithfulness": 0.9,
+      "answer_relevancy": 0.95,
+      "context_precision": 0.9,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q08",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.7,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q09",
+      "faithfulness": 0.0,
+      "answer_relevancy": 0.9,
+      "context_precision": 0.2,
+      "context_recall": 0.3
+    },
+    {
+      "id": "Q10",
+      "faithfulness": 0.2,
+      "answer_relevancy": 0.95,
+      "context_precision": 0.8,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q11",
+      "faithfulness": 0.8,
+      "answer_relevancy": 0.95,
+      "context_precision": 0.95,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q12",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q13",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.1,
+      "context_precision": 0.0,
+      "context_recall": 1.0
+    },
+    {
+      "id": "Q14",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.6,
+      "context_recall": 1.0
+    },
+    {
+      "id": "Q15",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.2,
+      "context_recall": 1.0
+    },
+    {
+      "id": "Q16",
+      "faithfulness": 0.1,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.7,
+      "context_recall": 0.2
+    },
+    {
+      "id": "Q17",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q18",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.1,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q19",
+      "faithfulness": 0.0,
+      "answer_relevancy": 1.0,
+      "context_precision": 0.95,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q20",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q21",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q22",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q23",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q24",
+      "faithfulness": 0.9,
+      "answer_relevancy": 0.95,
+      "context_precision": 0.9,
+      "context_recall": 0.0
+    },
+    {
+      "id": "Q25",
+      "faithfulness": 1.0,
+      "answer_relevancy": 0.0,
+      "context_precision": 0.0,
+      "context_recall": 0.5
+    }
+  ],
+  "evaluated_count": 25,
+  "timestamp": "2026-09-25T16:13:43.670535",
+  "method": "direct_llm_scoring",
+  "llm": "openai/gpt-oss-20b via Groq",
+  "note": "RAGAS-equivalent metrics computed via direct Groq LLM calls. ragas 0.4.3 InstructorLLM is incompatible with Groq on Python 3.14. Same 4 metrics computed with equivalent methodology."
+}

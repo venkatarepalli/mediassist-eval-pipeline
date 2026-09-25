@@ -1,0 +1,40 @@
+# Virtual environment
+venv/
+.venv/
+env/
+
+# Environment variables - NEVER commit these
+.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Logs
+logs/
+*.log
+
+# Raw intermediate data only — final reports are committed
+reports/ragas_raw_results.json
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# RAGAS / evaluation cache
+.ragas_cache/
+
+# LangSmith local cache
+.langsmith/
+
+# Test files — local verification only
+tests/
+
+# Main generated outputs to exclude
+*.db
