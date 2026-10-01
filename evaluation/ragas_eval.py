@@ -344,7 +344,7 @@ def run_ragas_evaluation(results: list) -> dict:
         "note": (
             "Custom LLM-as-a-Judge evaluators for four RAG quality dimensions. "
             "ragas 0.4.3 InstructorLLM incompatible with Groq on Python 3.14. "
-            "Same 4 metrics computed with equivalent methodology."
+            "LLM-based RAG evaluation using RAGAS-inspired evaluation dimensions."
         ),
     }
 

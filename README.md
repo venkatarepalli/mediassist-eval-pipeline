@@ -160,13 +160,17 @@ Output guardrail runs after MediBot and blocks:
 - Unsafe medical claims without source citations
 - Internal system information leaks
 
-Uses OpenEvals create_llm_as_judge for PII detection, combined with
-custom Groq LLM guardrails for hospital-specific categories not covered
-by generic evaluators.
+Uses OpenEvals create_llm_as_judge for PII detection as an additional layer,
+combined with custom Groq LLM guardrails for hospital-specific categories
+(PROMPT_INJECTION, RBAC_BYPASS, SOCIAL_ENGINEERING) not covered by generic evaluators.
 
-Both guardrails use OpenEvals-style structured JSON verdicts and fail closed —
-a malformed or missing verdict is treated as BLOCK, never as ALLOW.
-Block reasons are logged internally and never shown to the user.
+The primary guardrails fail closed — a malformed or missing verdict is treated
+as BLOCK, never as ALLOW. Block reasons are logged internally and never shown
+to the user.
+
+Note: OpenEvals PII detection is an additional check. If OpenEvals fails,
+the primary output guardrail remains responsible for the final decision and
+still fails closed.
 
 ### Component 2 — Observability & Tracing 
 
@@ -199,7 +203,7 @@ Custom LLM-as-a-Judge metrics computed (RAGAS-inspired):
 Tool substitution: The ragas library (0.4.3) is incompatible with Python 3.14
 on Windows due to its InstructorLLM requiring OpenAI-compatible clients that
 conflict with Groq's interface. The same 4 metrics are computed using direct
-Groq LLM calls with equivalent methodology. See Troubleshooting section.
+Groq LLM calls as LLM-based approximations of RAGAS-inspired evaluation dimensions. See Troubleshooting section.
 
 Note: temperature=0 is set on all scoring calls for maximum consistency.
 Minor variations between runs may occur due to LLM non-determinism —
@@ -232,10 +236,10 @@ within the same context window, avoiding self-grading bias.
 
 These run as part of the same evaluation pipeline as the RAGAS metrics.
 Results from the September 2026 evaluation run:
-- Citation check: 8/15 passed (53%) — refusal responses correctly have no sources
+- Citation check: 11/25 passed (44%) — refusal responses correctly have no sources
 - RBAC refusal: 1/1 passed (100%)
-- Latency: 15/15 passed (100%)
-- Empty answer: 15/15 passed (100%)
+- Latency: 25/25 passed (100%)
+- Empty answer: 25/25 passed (100%)
 
 ### Component 6 — Evaluation Report 
 
@@ -320,9 +324,9 @@ Error: "Failed to initialize groq client with instructor adapter"
 Cause: ragas 0.4.3 InstructorLLM requires OpenAI-compatible clients.
        Groq's native client does not expose a .messages attribute expected by Instructor.
        nest_asyncio (used by ragas executor) has known issues with Python 3.14 asyncio.
-Fix: Custom LLM-as-a-Judge evaluators implemented for the same four RAG quality dimensions in ragas_eval.py.
-     Same 4 metrics (faithfulness, answer_relevancy, context_precision, context_recall)
-     computed with equivalent methodology.
+Fix: Custom LLM-based evaluators implemented in ragas_eval.py as approximations of
+     RAGAS-inspired evaluation dimensions: faithfulness, answer relevancy,
+     context precision, and context recall.
 
 ### 3. ragas import error — ChatVertexAI
 
@@ -361,6 +365,12 @@ Note: openai/gpt-oss-20b and openai/gpt-oss-120b have separate quotas
 Error: "Expecting value: line 1 column 1 (char 0)"
 Cause: max_tokens too low — model truncates response before completing JSON
 Fix: Increase max_tokens to 500 in output_guardrail.py
+
+### 8. Output guardrail false positives on medical/billing responses
+
+Symptom: Legitimate clinical or billing answers blocked as UNSAFE_MEDICAL_CLAIM or PII_LEAK
+Cause: The 120b model is conservative — detailed clinical answers without explicit inline citations and billing documents listing document types are flagged as potentially unsafe
+Fix: Use general operational questions (fire safety, evacuation, HR policies) for pipeline integration tests. Medical and billing domain testing requires more permissive output guardrail thresholds or domain-specific system prompts.
 
 ---
 

@@ -177,7 +177,7 @@ def check_empty_answer(result: dict) -> dict:
 
 def run_heuristic_evals() -> dict:
     """
-    Runs all 4 heuristic checks on MediBot's 15 responses.
+    Runs all 4 heuristic checks on MediBot's responses.
     Loads raw results from ragas_raw_results.json.
     """
     print("=" * 60)
