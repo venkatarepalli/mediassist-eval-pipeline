@@ -41,12 +41,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 8319ms — within 10000ms threshold"
+          "reason": "Latency 4815ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 316 characters — valid"
+          "reason": "Answer has 204 characters — valid"
         }
       ]
     },
@@ -69,12 +69,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 4766ms — within 10000ms threshold"
+          "reason": "Latency 4341ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 44 characters — valid"
+          "reason": "Answer has 137 characters — valid"
         }
       ]
     },
@@ -97,12 +97,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5323ms — within 10000ms threshold"
+          "reason": "Latency 4724ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 912 characters — valid"
+          "reason": "Answer has 761 characters — valid"
         }
       ]
     },
@@ -125,7 +125,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5217ms — within 10000ms threshold"
+          "reason": "Latency 4201ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -153,7 +153,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 6232ms — within 10000ms threshold"
+          "reason": "Latency 4295ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -181,7 +181,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 4745ms — within 10000ms threshold"
+          "reason": "Latency 3728ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -209,12 +209,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5335ms — within 10000ms threshold"
+          "reason": "Latency 5093ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 624 characters — valid"
+          "reason": "Answer has 595 characters — valid"
         }
       ]
     },
@@ -237,7 +237,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5470ms — within 10000ms threshold"
+          "reason": "Latency 4352ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -265,12 +265,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5064ms — within 10000ms threshold"
+          "reason": "Latency 3935ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 411 characters — valid"
+          "reason": "Answer has 295 characters — valid"
         }
       ]
     },
@@ -293,12 +293,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 4804ms — within 10000ms threshold"
+          "reason": "Latency 4312ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 654 characters — valid"
+          "reason": "Answer has 340 characters — valid"
         }
       ]
     },
@@ -321,12 +321,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5683ms — within 10000ms threshold"
+          "reason": "Latency 5056ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 309 characters — valid"
+          "reason": "Answer has 233 characters — valid"
         }
       ]
     },
@@ -349,7 +349,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5113ms — within 10000ms threshold"
+          "reason": "Latency 5509ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -377,12 +377,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 3122ms — within 10000ms threshold"
+          "reason": "Latency 4323ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 160 characters — valid"
+          "reason": "Answer has 153 characters — valid"
         }
       ]
     },
@@ -405,7 +405,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 2639ms — within 10000ms threshold"
+          "reason": "Latency 2788ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -433,7 +433,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 6205ms — within 10000ms threshold"
+          "reason": "Latency 4488ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -461,12 +461,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 4914ms — within 10000ms threshold"
+          "reason": "Latency 6385ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 91 characters — valid"
+          "reason": "Answer has 77 characters — valid"
         }
       ]
     },
@@ -489,7 +489,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 7045ms — within 10000ms threshold"
+          "reason": "Latency 3779ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -517,7 +517,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 3619ms — within 10000ms threshold"
+          "reason": "Latency 3439ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -545,12 +545,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 7447ms — within 10000ms threshold"
+          "reason": "Latency 4549ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 174 characters — valid"
+          "reason": "Answer has 245 characters — valid"
         }
       ]
     },
@@ -573,7 +573,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 6225ms — within 10000ms threshold"
+          "reason": "Latency 4282ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -601,7 +601,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 3910ms — within 10000ms threshold"
+          "reason": "Latency 3480ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -629,7 +629,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 7852ms — within 10000ms threshold"
+          "reason": "Latency 4850ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -657,7 +657,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 5050ms — within 10000ms threshold"
+          "reason": "Latency 5272ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -685,12 +685,12 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 7408ms — within 10000ms threshold"
+          "reason": "Latency 6718ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
           "passed": true,
-          "reason": "Answer has 476 characters — valid"
+          "reason": "Answer has 379 characters — valid"
         }
       ]
     },
@@ -713,7 +713,7 @@
         {
           "check": "latency_check",
           "passed": true,
-          "reason": "Latency 8446ms — within 10000ms threshold"
+          "reason": "Latency 3837ms — within 10000ms threshold"
         },
         {
           "check": "empty_answer_check",
@@ -727,5 +727,5 @@
     "latency_ms": 10000,
     "min_answer_length": 10
   },
-  "timestamp": "2026-09-25T16:13:44.324997"
+  "timestamp": "2026-10-01T19:00:14.693798"
 }

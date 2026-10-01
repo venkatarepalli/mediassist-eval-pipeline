@@ -39,11 +39,11 @@ MEDIBOT_URL = "http://localhost:8000"
 
 # ── Demo credentials per role ──────────────────────────────────────────────────
 ROLE_CREDENTIALS = {
-    "doctor":            {"username": "dr.mehta",      "password": "doctor"},
-    "nurse":             {"username": "nurse.priya",   "password": "nurse"},
-    "billing_executive": {"username": "billing.ravi",  "password": "billing_executive"},
-    "technician":        {"username": "tech.anand",    "password": "technician"},
-    "admin":             {"username": "admin.sys",      "password": "admin"},
+    "doctor":            {"username": os.getenv("DOCTOR_USERNAME"),    "password": os.getenv("DOCTOR_PASSWORD")},
+    "nurse":             {"username": os.getenv("NURSE_USERNAME"),     "password": os.getenv("NURSE_PASSWORD")},
+    "billing_executive": {"username": os.getenv("BILLING_USERNAME"),   "password": os.getenv("BILLING_PASSWORD")},
+    "technician":        {"username": os.getenv("TECHNICIAN_USERNAME"),"password": os.getenv("TECHNICIAN_PASSWORD")},
+    "admin":             {"username": os.getenv("ADMIN_USERNAME"),     "password": os.getenv("ADMIN_PASSWORD")},
 }
 
 

@@ -109,13 +109,21 @@ def judge_answer(
             source_list.append(str(s))
     sources_text = "\n".join(source_list) if source_list else "No sources cited"
 
-    prompt = f"""Question: {question[:150]}
+    # Track truncation for transparency
+    MAX_ANSWER = 800
+    MAX_EXPECTED = 400
+    MAX_SOURCES = 400
 
-Expected answer: {expected_answer[:150]}
+    answer_truncated = len(actual_answer) > MAX_ANSWER
+    expected_truncated = len(expected_answer) > MAX_EXPECTED
 
-Actual answer: {actual_answer[:200]}
+    prompt = f"""Question: {question}
 
-Sources cited: {sources_text[:150]}
+Expected answer: {expected_answer[:MAX_EXPECTED]}{"... [truncated]" if expected_truncated else ""}
+
+Actual answer: {actual_answer[:MAX_ANSWER]}{"... [truncated]" if answer_truncated else ""}
+
+Sources cited: {sources_text[:MAX_SOURCES]}    
 
 Question category: {category}
 
@@ -180,6 +188,8 @@ Grade the actual answer against the rubric. Remember:
             "citation_correctness": round(float(data["citation_correctness"]), 4),
             "overall": round(float(data["overall"]), 4),
             "justification": data["justification"],
+            "answer_truncated": answer_truncated,
+            "expected_truncated": expected_truncated,
             "status": "success",
         }
 

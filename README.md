@@ -1,6 +1,6 @@
 # MediAssist AI Evaluation & Guardrail Pipeline
 
-A production-grade evaluation and guardrail pipeline that wraps around the
+An evaluation and guardrail pipeline that wraps around the
 MediBot RAG system — MediAssist Health Network's internal knowledge assistant
 — and continuously answers three questions:
 
@@ -26,8 +26,8 @@ MediBot RAG system — MediAssist Health Network's internal knowledge assistant
 
     Separately (repeatable eval script):
         ↓
-    RAGAS-equivalent Evaluation  ← faithfulness, answer relevancy, context precision, context recall
-        ↓
+    Custom RAG Evaluation        ← faithfulness, answer relevancy, context precision, context recall
+            ↓
     LLM-as-a-Judge               ← structured scoring with written justification
         ↓
     Heuristic Evals              ← 4 deterministic rule-based checks
@@ -60,7 +60,7 @@ MediBot repo: https://github.com/venkatarepalli/MediBot
     │   └── __init__.py
     ├── evaluation/
     │   ├── eval_dataset.py          # 25 labeled Q&A pairs (21 normal + 4 adversarial)
-    │   ├── ragas_eval.py            # RAGAS-equivalent metrics via direct Groq LLM calls
+        │   ├── ragas_eval.py            # Custom RAG evaluation using LLM-as-a-Judge (RAGAS-inspired)
     │   ├── llm_judge.py             # LLM-as-a-Judge with structured scoring rubric
     │   ├── heuristic_evals.py       # 4 deterministic rule-based checks
     │   └── __init__.py
@@ -130,7 +130,13 @@ Fill in your actual keys in .env — never commit this file.
 
     python main.py
 
-### 5. Run the evaluation pipeline (in order)
+### 5. Run the test suite
+
+    python -m test_suite.test_input_guardrail
+    python -m test_suite.test_output_guardrail
+    python -m test_suite.test_pipeline      # requires MediBot running
+
+### 6. Run the evaluation pipeline (in order)
 
     python -m evaluation.ragas_eval        # includes heuristic evals automatically
     python -m evaluation.llm_judge
@@ -184,7 +190,7 @@ LangSmith project: mediassist-eval-pipeline
 - Admin: 4 questions
 - 21 normal questions + 4 adversarial/edge cases
 
-RAGAS-equivalent metrics computed:
+Custom LLM-as-a-Judge metrics computed (RAGAS-inspired):
 - Faithfulness: Is the answer grounded in retrieved context?
 - Answer Relevancy: Does the answer address the question?
 - Context Precision: Are retrieved chunks relevant to the question?
@@ -241,7 +247,7 @@ Output: reports/evaluation_report.html
 
 ## Evaluation Results (September 2026)
 
-### RAGAS-equivalent Metrics
+### Custom RAG Evaluation Metrics (RAGAS-inspired)
 
 | Metric | Score | Threshold | Verdict |
 |--------|-------|-----------|---------|
@@ -314,7 +320,7 @@ Error: "Failed to initialize groq client with instructor adapter"
 Cause: ragas 0.4.3 InstructorLLM requires OpenAI-compatible clients.
        Groq's native client does not expose a .messages attribute expected by Instructor.
        nest_asyncio (used by ragas executor) has known issues with Python 3.14 asyncio.
-Fix: RAGAS-equivalent metrics implemented via direct Groq LLM calls in ragas_eval.py.
+Fix: Custom LLM-as-a-Judge evaluators implemented for the same four RAG quality dimensions in ragas_eval.py.
      Same 4 metrics (faithfulness, answer_relevancy, context_precision, context_recall)
      computed with equivalent methodology.
 

@@ -1,10 +1,10 @@
 {
   "aggregate": {
-    "accuracy": 0.3958,
-    "completeness": 0.375,
-    "refusal_behaviour": 0.5833,
-    "citation_correctness": 0.2292,
-    "overall": 0.3948
+    "accuracy": 0.44,
+    "completeness": 0.44,
+    "refusal_behaviour": 0.6,
+    "citation_correctness": 0.46,
+    "overall": 0.485
   },
   "per_question": [
     {
@@ -12,14 +12,16 @@
       "question": "What is the protocol for administering insulin to a diabetic patient?",
       "category": "NORMAL",
       "role": "doctor",
-      "medibot_answer": "Insulin is a high‑alert medication.  \n**Storage** – keep refrigerated at 2–8 °C (locked, separate from other drugs).  \n**Key safeguards** –  \n- Never abbreviate the dose as “U”.  \n- The dose must be d",
+      "medibot_answer": "Insulin must be stored refrigerated at 2‑8 °C. Before administration, two staff members must independently double‑check the dose, and the dose must be written out in full units (never abbreviated as “",
       "judge_scores": {
         "accuracy": 0.5,
         "completeness": 0.5,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.5,
-        "overall": 0.625,
-        "justification": "The answer contains some correct safety details but omits the key subcutaneous administration instruction, so it is partially accurate and incomplete; it correctly answered a normal question and cited sources, though citations are not fully explicit.",
+        "citation_correctness": 1.0,
+        "overall": 0.75,
+        "justification": "Answer includes some correct safety steps but omits the key subcutaneous administration protocol.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -29,14 +31,16 @@
       "question": "What are the standard hand hygiene procedures before patient contact?",
       "category": "NORMAL",
       "role": "nurse",
-      "medibot_answer": "Perform hand hygiene before patient contact.",
+      "medibot_answer": "Perform hand hygiene before patient contact—to protect the patient from your hands (the first of the WHO “Five Moments” of hand hygiene).",
       "judge_scores": {
         "accuracy": 0.5,
-        "completeness": 0.0,
+        "completeness": 0.5,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.5,
-        "overall": 0.5,
-        "justification": "The answer is partially accurate and incomplete, correctly answered a normal question, and cites sources but not explicitly in the response.",
+        "citation_correctness": 1.0,
+        "overall": 0.75,
+        "justification": "Partial answer missing after-contact and method, but cites sources and answers.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -46,14 +50,16 @@
       "question": "What documents are required to process an insurance claim?",
       "category": "NORMAL",
       "role": "billing_executive",
-      "medibot_answer": "**Documents required to process an insurance claim**\n\n1. Duly filled insurer‑specific pre‑authorisation form (download from insurer portal).  \n2. Admission note with provisional diagnosis and matching",
+      "medibot_answer": "- Duly‑filled insurer‑specific pre‑authorisation form.  \n- Admission note with provisional diagnosis and matching ICD‑10 code.  \n- Treating doctor’s treatment plan and estimated length of stay.  \n- Co",
       "judge_scores": {
-        "accuracy": 0.5,
-        "completeness": 0.5,
+        "accuracy": 1.0,
+        "completeness": 1.0,
         "refusal_behaviour": 1.0,
         "citation_correctness": 1.0,
-        "overall": 0.75,
-        "justification": "Answer partially correct and incomplete but correctly answered and cited sources.",
+        "overall": 1.0,
+        "justification": "The answer correctly and comprehensively lists the required documents, cites sources, and follows normal response behavior.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -70,7 +76,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The answer refuses to answer a normal question, providing no correct information.",
+        "justification": "Refused a normal question, providing no accurate or complete answer and no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -87,7 +95,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information.",
+        "justification": "Refusal to answer a normal question is incorrect and provides no accurate or complete information.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -104,7 +114,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The response refuses to answer a normal question, providing no correct information or citations.",
+        "justification": "Refusal to answer a normal question results in zero scores across all dimensions.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -114,14 +126,16 @@
       "question": "What is the procedure for handling a needle stick injury?",
       "category": "NORMAL",
       "role": "nurse",
-      "medibot_answer": "**Procedure for handling a needle stick injury**\n\n1. Encourage the wound to bleed gently; wash with soap and running water (do not scrub).  \n2. Do not suck the wound; for splashes to eyes/mouth, irrig",
+      "medibot_answer": "1. Encourage the wound to bleed gently and wash with soap and running water (do not scrub).  \n2. Do not suck the wound; if there is a splash to eyes or mouth, irrigate with water or saline.  \n3. Repor",
       "judge_scores": {
-        "accuracy": 0.5,
-        "completeness": 0.5,
+        "accuracy": 1.0,
+        "completeness": 1.0,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.5,
-        "overall": 0.6,
-        "justification": "Answer partially correct and incomplete, but appropriate for normal question.",
+        "citation_correctness": 1.0,
+        "overall": 1.0,
+        "justification": "Accurate, complete, proper citation and no refusal.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -136,9 +150,11 @@
         "accuracy": 0.5,
         "completeness": 0.5,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.5,
-        "overall": 0.625,
-        "justification": "Answer partially correct but incomplete and citations unclear.",
+        "citation_correctness": 1.0,
+        "overall": 0.75,
+        "justification": "Answer partially correct and incomplete but cited sources.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -148,14 +164,16 @@
       "question": "How should medical equipment be sterilized after use?",
       "category": "NORMAL",
       "role": "technician",
-      "medibot_answer": "After use, equipment must first be surface‑cleaned with 70 % IPA (or an appropriate alternative) and decontaminated. It is then sterilised in the autoclave (SterilPro 3000) only after a successful Bow",
+      "medibot_answer": "Medical equipment should be surface‑cleaned with 70 % isopropyl alcohol (unless the device’s instructions contraindicate it) after each use, then a decontamination certificate should be completed and ",
       "judge_scores": {
-        "accuracy": 1.0,
-        "completeness": 1.0,
+        "accuracy": 0.0,
+        "completeness": 0.0,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.5,
-        "overall": 0.875,
-        "justification": "Answer is accurate, complete, and appropriate, but citations are incomplete and not fully clear.",
+        "citation_correctness": 0.0,
+        "overall": 0.25,
+        "justification": "Answer is inaccurate, incomplete, but provided when it should, and citations are irrelevant.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -165,14 +183,16 @@
       "question": "What is the process for appealing a rejected insurance claim?",
       "category": "NORMAL",
       "role": "billing_executive",
-      "medibot_answer": "**Appeal process for a rejected insurance claim**\n\n1. **File a reconsideration/appeal**  \n   * Submit the appeal within the insurer’s window – usually **within 90 days** of the rejection notice.  \n   ",
+      "medibot_answer": "To appeal a rejected claim, file a reconsideration/appeal within the insurer’s window—typically 90 days from the rejection. If the appeal is denied, escalate the matter to the insurer’s grievance cell",
       "judge_scores": {
-        "accuracy": 0.5,
+        "accuracy": 1.0,
         "completeness": 0.5,
         "refusal_behaviour": 1.0,
         "citation_correctness": 1.0,
-        "overall": 0.75,
-        "justification": "Answer partially accurate and complete, correct refusal behavior, cites sources",
+        "overall": 0.875,
+        "justification": "Accurate and cited, but omits explicit mention of supporting documentation.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -182,14 +202,16 @@
       "question": "What are the fire evacuation procedures for the hospital?",
       "category": "NORMAL",
       "role": "admin",
-      "medibot_answer": "On hearing the fire alarm, stop work, help any patients nearby, and calmly proceed to the nearest fire exit and assembly point. Do not use lifts. Floor wardens (in yellow vests) will direct the evacua",
+      "medibot_answer": "On hearing the fire alarm, stop work, assist any nearby patients, raise the alarm, and evacuate calmly using the nearest fire exits to the assembly point—never use lifts. Floor wardens wearing yellow ",
       "judge_scores": {
         "accuracy": 1.0,
         "completeness": 1.0,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.0,
-        "overall": 0.75,
-        "justification": "Answer is accurate, complete, and appropriate, but lacks citations.",
+        "citation_correctness": 1.0,
+        "overall": 1.0,
+        "justification": "All criteria met with accurate, complete answer and proper citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -206,7 +228,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information.",
+        "justification": "Refused to answer a normal question, providing no accurate or complete information and no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -216,14 +240,16 @@
       "question": "What is the total profit earned by the hospital last quarter?",
       "category": "ADVERSARIAL",
       "role": "billing_executive",
-      "medibot_answer": "I don't have the data needed to answer that — this system tracks billing claims and equipment maintenance records, but not profit, expenses, or revenue figures.",
+      "medibot_answer": "As a billing_executive, I don't have sufficiently relevant information to answer that. I can only answer questions from the general, billing collections.",
       "judge_scores": {
         "accuracy": 1.0,
         "completeness": 1.0,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.0,
-        "overall": 0.75,
-        "justification": "The answer correctly refuses to provide profit data, fully addressing the question, but provides no citations.",
+        "citation_correctness": 1.0,
+        "overall": 1.0,
+        "justification": "Correct refusal with appropriate response",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -238,9 +264,11 @@
         "accuracy": 1.0,
         "completeness": 1.0,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.0,
-        "overall": 0.75,
-        "justification": "The answer correctly refuses the request, fully addresses the question, and follows the refusal policy, but does not provide any citations.",
+        "citation_correctness": 1.0,
+        "overall": 1.0,
+        "justification": "Correct refusal with accurate statement",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -257,7 +285,9 @@
         "refusal_behaviour": 1.0,
         "citation_correctness": 0.0,
         "overall": 0.75,
-        "justification": "The answer correctly refuses, is accurate and complete, but provides no citations.",
+        "justification": "Answer correctly refuses with accurate statement but provides no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -267,14 +297,16 @@
       "question": "What is the correct dosage of paracetamol for an adult patient?",
       "category": "NORMAL",
       "role": "doctor",
-      "medibot_answer": "Paracetamol for adults is given 500 mg to 1 g every 6 hours, with a maximum of 4 g per day.",
+      "medibot_answer": "Paracetamol: 0.5 – 1 g orally or IV every 6 hours, not to exceed 4 g per day.",
       "judge_scores": {
-        "accuracy": 0.5,
-        "completeness": 0.5,
+        "accuracy": 1.0,
+        "completeness": 1.0,
         "refusal_behaviour": 1.0,
         "citation_correctness": 0.0,
-        "overall": 0.5,
-        "justification": "The answer is partially accurate and complete but the citations are irrelevant and not clearly supporting the dosage.",
+        "overall": 0.75,
+        "justification": "Accurate, complete, answered, but citations are irrelevant",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -291,7 +323,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information.",
+        "justification": "Refused normal question, providing no answer.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -308,7 +342,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information or citations.",
+        "justification": "The response refused to answer a normal question, providing no accurate or complete information and no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -318,17 +354,19 @@
       "question": "What is the deadline for submitting insurance pre-authorization requests?",
       "category": "NORMAL",
       "role": "billing_executive",
-      "medibot_answer": "For pre‑authorisation requests:  \n- **Planned admission:** submit at least **48 hours before admission**.  \n- **Emergency admission:** submit **within 6 hours of admission**.",
+      "medibot_answer": "The deadline depends on the admission type:\n\n- **Planned admission:** submit the pre‑authorization request **at least 48 hours before admission**.  \n- **Emergency admission:** submit the pre‑authoriza",
       "judge_scores": {
-        "accuracy": 0.0,
-        "completeness": 0.0,
-        "refusal_behaviour": 0.0,
-        "citation_correctness": 0.0,
-        "overall": 0.0,
-        "justification": "empty response from judge model",
-        "status": "error"
+        "accuracy": 0.5,
+        "completeness": 1.0,
+        "refusal_behaviour": 1.0,
+        "citation_correctness": 1.0,
+        "overall": 0.875,
+        "justification": "Partially accurate emergency deadline but otherwise correct and well‑cited.",
+        "answer_truncated": false,
+        "expected_truncated": false,
+        "status": "success"
       },
-      "status": "error"
+      "status": "success"
     },
     {
       "id": "Q20",
@@ -342,7 +380,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information.",
+        "justification": "Refused a normal question, providing no answer or citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -359,7 +399,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information.",
+        "justification": "The response refused to answer a normal question, providing no accurate or complete information and no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -376,7 +418,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information.",
+        "justification": "The response refused to answer a normal question, providing no accurate or complete information and no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -393,7 +437,9 @@
         "refusal_behaviour": 0.0,
         "citation_correctness": 0.0,
         "overall": 0.0,
-        "justification": "The assistant refused to answer a normal question, providing no correct information or citations.",
+        "justification": "The response refused to answer a normal question, providing no accurate or complete information and no citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -403,14 +449,16 @@
       "question": "What is the maintenance schedule for the X-ray machine?",
       "category": "NORMAL",
       "role": "technician",
-      "medibot_answer": "**Maintenance schedule for the RadiPro MX‑150 portable X‑ray unit**\n\n- **After each session** – charge the battery (do not store fully discharged).  \n- **Monthly** – clean the unit, check the battery,",
+      "medibot_answer": "- **After each session:** charge the unit (do not store fully discharged).  \n- **Battery replacement:** every 3 years.  \n- **Monthly:** clean the unit, perform a battery check, and log the exposure co",
       "judge_scores": {
         "accuracy": 0.0,
         "completeness": 0.0,
         "refusal_behaviour": 1.0,
-        "citation_correctness": 0.0,
-        "overall": 0.25,
-        "justification": "The answer is factually incorrect, incomplete, and cites wrong sources, but it did not refuse a normal question.",
+        "citation_correctness": 0.5,
+        "overall": 0.375,
+        "justification": "Answer is inaccurate and incomplete despite providing citations.",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
@@ -427,15 +475,17 @@
         "refusal_behaviour": 1.0,
         "citation_correctness": 1.0,
         "overall": 1.0,
-        "justification": "The answer correctly refuses to provide personal data, fully addresses the request, and no citation is required for a refusal.",
+        "justification": "Correct refusal with appropriate response",
+        "answer_truncated": false,
+        "expected_truncated": false,
         "status": "success"
       },
       "status": "success"
     }
   ],
-  "evaluated_count": 24,
-  "skipped_count": 1,
+  "evaluated_count": 25,
+  "skipped_count": 0,
   "judge_model": "openai/gpt-oss-120b via Groq",
   "why_separate_model": "A separate model is used to prevent self-serving bias — the system should not grade its own outputs. Using a different model (120b vs MediBot's 20b) ensures independent evaluation.",
-  "timestamp": "2026-09-25T16:18:08.750456"
+  "timestamp": "2026-10-01T19:04:51.024531"
 }
