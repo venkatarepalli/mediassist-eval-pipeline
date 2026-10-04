@@ -2,7 +2,7 @@
 
 An evaluation and guardrail pipeline that wraps around the
 MediBot RAG system — MediAssist Health Network's internal knowledge assistant
-— and continuously answers three questions:
+— and systematically answers three questions:
 
 - **Is this input safe to process?**
 - **Is this output safe to show the user?**
@@ -200,10 +200,11 @@ Custom LLM-as-a-Judge metrics computed (RAGAS-inspired):
 - Context Precision: Are retrieved chunks relevant to the question?
 - Context Recall: Did retrieval find everything needed?
 
-Tool substitution: The ragas library (0.4.3) is incompatible with Python 3.14
-on Windows due to its InstructorLLM requiring OpenAI-compatible clients that
-conflict with Groq's interface. The same 4 metrics are computed using direct
-Groq LLM calls as LLM-based approximations of RAGAS-inspired evaluation dimensions. See Troubleshooting section.
+Tool substitution: In this environment, Ragas 0.4.3 could not be used
+successfully with the Groq integration on Python 3.14/Windows due to
+dependency and client-compatibility issues. The same four evaluation
+dimensions are computed using direct Groq LLM calls as LLM-based
+approximations inspired by RAGAS. See the Troubleshooting section.
 
 Note: temperature=0 is set on all scoring calls for maximum consistency.
 Minor variations between runs may occur due to LLM non-determinism —
@@ -318,7 +319,7 @@ Fix: Download and install from https://visualstudio.microsoft.com/visual-cpp-bui
      Select "Desktop development with C++" workload during installation
 Note: This is a one-time system-level installation. Without it, pip install ragas fails.
 
-### 2. ragas library incompatible with Python 3.14 + Groq
+### 2. ragas 0.4.3 + Groq integration issue on Python 3.14/Windows
 
 Error: "Failed to initialize groq client with instructor adapter"
 Cause: ragas 0.4.3 InstructorLLM requires OpenAI-compatible clients.
