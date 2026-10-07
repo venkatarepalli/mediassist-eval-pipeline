@@ -53,7 +53,7 @@ MediBot repo: https://github.com/venkatarepalli/MediBot
 
 ## Project Structure
 
-    Assignment3/
+    mediassist-eval-pipeline/
     ├── guardrails/
     │   ├── input_guardrail.py       # blocks unsafe prompts before MediBot processes them
     │   ├── output_guardrail.py      # blocks unsafe/leaking responses before user sees them
@@ -270,7 +270,7 @@ within the same context window, avoiding self-grading bias.
 4. Empty answer check: No response may contain an empty or null answer field
 
 These run as part of the same evaluation pipeline as the RAGAS metrics.
-Results from the September 2026 evaluation run:
+Results from the latest evaluation run:
 - Citation check: 11/25 passed (44%) — refusal responses correctly have no sources
 - RBAC refusal: 1/1 passed (100%)
 - Latency: 25/25 passed (100%)
@@ -278,13 +278,13 @@ Results from the September 2026 evaluation run:
 
 ### Component 6 — Evaluation Report 
 
-A single HTML report consolidating all signals with a clear pass/fail verdict.
+A consolidated view of all signals and overall pass/fail status.
 Run: python -m reports.generate_report
 Output: reports/evaluation_report.html
 
 ---
 
-## Evaluation Results (September 2026)
+## Evaluation Results
 
 ### Custom RAG Evaluation Metrics (RAGAS-inspired)
 
@@ -336,7 +336,7 @@ MediBot sources return section titles not full text, limiting context precision/
 | Assignment requirement | Tool used instead | Reason |
 |----------------------|-------------------|--------|
 | AWS Bedrock Guardrails | OpenEvals-style direct LLM scoring | AWS AgentCore quota blocked — 17-day open support ticket unresolved |
-| ragas library metrics | Direct Groq LLM calls (same 4 metrics) | ragas 0.4.3 InstructorLLM incompatible with Groq on Python 3.14/Windows |
+| ragas library metrics | Four RAGAS-inspired evaluation dimensions implemented via direct Groq LLM calls | Ragas 0.4.3 could not be used successfully in this environment |
 | OpenAI API | Groq API (openai/gpt-oss-120b) | Free tier, same OpenAI-compatible interface |
 
 | OpenEvals + custom guardrails | OpenEvals `create_llm_as_judge` used for PII detection in output guardrail. Custom Groq LLM guardrails used for hospital-specific categories (PROMPT_INJECTION, RBAC_BYPASS, SOCIAL_ENGINEERING) not available in generic OpenEvals evaluators. |
