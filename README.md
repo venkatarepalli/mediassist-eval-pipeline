@@ -93,11 +93,48 @@ MediBot repo: https://github.com/venkatarepalli/MediBot
 - Microsoft C++ Build Tools (required for scikit-network dependency)
   Download from: https://visualstudio.microsoft.com/visual-cpp-build-tools/
   Install "Desktop development with C++" workload
-- MediBot running locally (Qdrant on port 6333 + FastAPI on port 8000)
-- Docker Desktop (for Qdrant)
+- Docker Desktop — download from https://www.docker.com/products/docker-desktop
 - API keys: Groq, LangSmith, HuggingFace
 
-### 1. Clone and set up virtual environment
+---
+
+### Step 0 — Set up MediBot (required before anything else)
+
+This pipeline wraps around MediBot. MediBot must be running before the eval pipeline will work.
+
+    # Clone MediBot
+    git clone https://github.com/venkatarepalli/MediBot
+    cd MediBot
+
+    # Follow MediBot README to install dependencies and configure its .env file
+
+    # Start Qdrant — first time only (creates the container)
+    docker run -d -p 6333:6333 -p 6334:6334 --name medibot-qdrant qdrant/qdrant
+
+    # Start Qdrant — subsequent runs (container already exists)
+    docker start medibot-qdrant
+
+    # Activate MediBot's virtual environment
+    .venv\Scripts\activate
+
+    # Run ingestion — first time only, or after container recreation
+    # Skip this if Qdrant already has data from a previous run
+    python run_ingestion.py
+
+    # Start MediBot API — always run from MediBot directory using MediBot's own venv
+    uvicorn src.api.main:app --reload --port 8000
+
+    # Verify MediBot is running (open a new terminal for this)
+    Invoke-RestMethod -Uri "http://localhost:8000/health"
+    # Expected: status : ok
+
+    # Optional — Start MediBot Streamlit UI (not required for eval pipeline)
+    streamlit run streamlit_app.py
+    # Opens at http://localhost:8501 — useful for manually testing MediBot responses
+
+---
+
+### Step 1 — Clone and set up the eval pipeline
 
     git clone https://github.com/venkatarepalli/mediassist-eval-pipeline
     cd mediassist-eval-pipeline
@@ -106,37 +143,34 @@ MediBot repo: https://github.com/venkatarepalli/MediBot
     source venv/bin/activate       # Mac/Linux
     pip install -r requirements.txt
 
-### 2. Configure environment variables
+---
+
+### Step 2 — Configure environment variables
 
     copy .env.example .env         # Windows
     cp .env.example .env           # Mac/Linux
 
 Fill in your actual keys in .env — never commit this file.
 
-### 3. Start MediBot (prerequisite)
+---
 
-    # Terminal 1 — Start Qdrant
-    docker run -d -p 6333:6333 -p 6334:6334 --name medibot-qdrant qdrant/qdrant
+### Step 3 — Run the guardrail pipeline demo
 
-    # Terminal 2 — Run MediBot ingestion (first time only)
-    cd path/to/MediBot
-    python run_ingestion.py
-
-    # Terminal 3 — Start MediBot API
-    cd path/to/MediBot
-    uvicorn src.api.main:app --reload --port 8000
-
-### 4. Run the full guardrail pipeline (demo)
+Ensure MediBot is running (Step 0) before running this.
 
     python main.py
 
-### 5. Run the test suite
+---
+
+### Step 4 — Run the test suite
 
     python -m test_suite.test_input_guardrail
     python -m test_suite.test_output_guardrail
     python -m test_suite.test_pipeline      # requires MediBot running
 
-### 6. Run the evaluation pipeline (in order)
+---
+
+### Step 5 — Run the evaluation pipeline (in order)
 
     python -m evaluation.ragas_eval        # includes heuristic evals automatically
     python -m evaluation.llm_judge
